@@ -1,0 +1,286 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Sistema de Control de Estacionamiento{% endblock %}</title>
+    <style>
+
+        
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        
+        form {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+            max-width: 400px; 
+            margin: 40px auto; 
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        label {
+            font-size: 16px;
+            margin-bottom: 5px;
+            color: #4848E7;
+        }
+        
+        input[type="text"],
+        input[type="email"],
+        select {
+            width: 100%; 
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            transition: border-color 0.3s;
+            box-sizing: border-box;
+        }
+        
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        select:focus {
+            border-color: #4848E7;
+            outline: none;
+        }
+        
+        .btn {
+            background-color: #4848E7;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+            text-align: center;
+            display: inline-block;
+            margin-top: 20px;
+            cursor: pointer;
+            border: none;
+            width: 100%; 
+        }
+        
+        .btn:hover {
+            background-color: #3636B0;
+        }
+        
+        .button-group {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+        }
+        
+        .button-group .btn {
+            width: auto;
+        }
+        
+        .navbar {
+            background-color: #4848E7;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Logo o nombre del sitio */
+        .navbar-brand {
+            font-size: 24px;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        /* Estilos para los enlaces del menú */
+        .navbar-menu {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 15px;
+        }
+        
+        .navbar-menu li {
+            display: inline-block;
+        }
+        
+        .navbar-menu a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 16px;
+            padding: 10px;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+        
+        /* Hover effect for menu links */
+        .navbar-menu a:hover {
+            background-color: #3636B0;
+        }
+        
+        /* Estilos para el botón de menú en móviles (hamburger) */
+        .navbar-toggle {
+            display: none;
+            font-size: 24px;
+            color: #ffffff;
+            cursor: pointer;
+        }
+        
+        /* Responsiveness: Mostrar el toggle y ocultar el menú en pantallas pequeñas */
+        @media (max-width: 768px) {
+            .navbar-menu {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background-color: #4848E7;
+            }
+        
+            .navbar-menu li {
+                text-align: center;
+                margin: 10px 0;
+            }
+        
+            .navbar-menu.show {
+                display: flex;
+            }
+        
+            .navbar-toggle {
+                display: block;
+            }
+        }
+
+      
+
+
+    .container {
+        width: 80%;
+        margin: auto;
+        overflow: hidden;
+    }
+
+    h1 {
+        color: #333;
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    /* Forms */
+    .form-container {
+        background: #fff;
+        padding: 20px;
+        margin: 20px auto;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .form-group label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    .form-group input, 
+    .form-group select {
+        width: 100%;
+        padding: 8px;
+        box-sizing: border-box;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+    }
+
+    .btn {
+        display: inline-block;
+        padding: 10px 15px;
+        font-size: 16px;
+        color: #fff;
+        background-color: #007bff;
+        border: none;
+        border-radius: 4px;
+        text-decoration: none;
+        text-align: center;
+    }
+
+    .btn:hover {
+        background-color: #0056b3;
+    }
+
+    .btn-danger {
+        background-color: #dc3545;
+    }
+
+    .btn-danger:hover {
+        background-color: #c82333;
+    }
+
+    /* Tables */
+    .table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+    }
+
+    .table thead {
+        background-color: #007bff;
+        color: #fff;
+    }
+
+    .table th, 
+    .table td {
+        padding: 10px;
+        text-align: left;
+        border: 1px solid #ddd;
+    }
+
+    .table tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    .confirmation {
+        text-align: center;
+    }
+
+    .confirmation p {
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
+
+    .confirmation form {
+        display: inline-block;
+    }
+
+    </style>
+
+</head>
+<body>
+    <header>
+        <h1>Bienvenido al Sistema de Control de Estacionamiento</h1>
+            <nav class="navbar">
+                <a href="{% url 'index' %}" class="navbar-brand">Inicio</a>
+                <div class="navbar-menu">
+                    <a href="{% url 'registrar_usuario' %}" class="navbar-link">Registrar Usuario</a>
+                    <a href="{% url 'registrar_carro' %}" class="navbar-link">Registrar Carro</a>
+                    <a href="{% url 'listar_usuarios' %}" class="navbar-link">Listar Usuarios</a>
+                    <a href="{% url 'listar_carros' %}" class="navbar-link">Listar Carros</a>
+                </div>
+            </nav>
+
+    </header>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+</body>
+</html>

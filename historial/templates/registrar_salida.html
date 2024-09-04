@@ -1,0 +1,17 @@
+<!-- registrar_salida.html -->
+{% extends 'base1.html' %}
+
+{% block title %}Registrar Salida{% endblock %}
+
+{% block content %}
+<h1>Registrar Salida</h1>
+<form method="POST">
+    {% csrf_token %}
+    <label for="codigo">Código de Salida:</label>
+    <input type="text" id="codigo" name="codigo" required>
+    <button type="submit">Registrar Salida</button>
+</form>
+{% if error %}
+    <p class="error">{{ error }}</p>
+{% endif %}
+{% endblock %}

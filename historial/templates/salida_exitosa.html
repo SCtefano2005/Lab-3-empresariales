@@ -1,0 +1,13 @@
+<!-- salida_exitosa.html -->
+{% extends 'base1.html' %}
+
+{% block title %}Salida Exitosa{% endblock %}
+
+{% block content %}
+<h1>Salida Exitosa</h1>
+<p><strong>Carro (Placa):</strong> {{ visita.carro.placa }}</p>
+<p><strong>Código de Ingreso:</strong> {{ visita.codigo }}</p>
+<p><strong>Hora de Entrada:</strong> {{ visita.fecha_entrada }}</p>
+<p><strong>Hora de Salida:</strong> {{ visita.fecha_salida }}</p>
+<a href="{% url 'registrar_salida' %}">Registrar otra salida</a>
+{% endblock %}

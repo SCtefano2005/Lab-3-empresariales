@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Detalles del Carro{% endblock %}
+
+{% block content %}
+    <div class="car-details">
+        <h1>Detalles del Carro</h1>
+        <p><strong>Placa:</strong> {{ carro.placa }}</p>
+        <p><strong>Tipo:</strong> {{ carro.tipo.tipo }}</p>
+        <p><strong>Propietario:</strong> {{ carro.usuario.name }} {{ carro.usuario.lastname }}</p>
+
+        <div class="button-group">
+            <a href="{% url 'index' %}" class="btn">Volver al Inicio</a>
+            <a href="{% url 'editar_carro' carro.id %}" class="btn btn-edit">Editar</a>
+        </div>
+    </div>
+{% endblock %}

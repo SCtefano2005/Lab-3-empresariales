@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Editar Carro{% endblock %}
+
+{% block content %}
+    <div class="edit-car-container">
+        <h1>Editar Carro</h1>
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-container">
+                {{ form.as_p }}
+                <button type="submit" class="btn">Guardar Cambios</button>
+            </div>
+        </form>
+        <a href="{% url 'index' %}" class="btn">Volver al Inicio</a>
+    </div>
+{% endblock %}

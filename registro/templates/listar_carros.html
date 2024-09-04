@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}Listado de Carros{% endblock %}
+
+{% block content %}
+    <h1>Listado de Carros</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Placa</th>
+                <th>Tipo</th>
+                <th>Propietario (DNI)</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for carro in carros %}
+                <tr>
+                    <td>{{ carro.placa }}</td>
+                    <td>{{ carro.tipo }}</td>
+                    <td>{{ carro.usuario.dni }}</td>
+                    <td>
+                        <a href="{% url 'editar_carro' id=carro.id %}" class="btn">Editar</a>
+                        <a href="{% url 'eliminar_carro' id=carro.id %}" class="btn btn-danger">Eliminar</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'index' %}" class="btn">Volver al Inicio</a>
+{% endblock %}

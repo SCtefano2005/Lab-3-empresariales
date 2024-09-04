@@ -1,0 +1,15 @@
+
+{% extends 'base1.html' %}
+
+{% block title %}Código de Ingreso{% endblock %}
+
+{% block content %}
+<div class="codigo-ingreso-container">
+    <h1>Código de Ingreso</h1>
+    <p>Su código de ingreso es: <strong>{{ codigo }}</strong></p>
+    <div class="buttons">
+        <a href="{% url 'registrar_entrada' %}">Registrar otra entrada</a>
+        <a href="{% url 'registrar_salida' %}">Registrar salida</a>
+    </div>
+</div>
+{% endblock %}
