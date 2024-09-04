@@ -23,8 +23,8 @@
                     <td>{{ usuario.lastname }}</td>
                     <td>{{ usuario.email }}</td>
                     <td>{{ usuario.dni }}</td>
-                    <td>{{ usuario.department }}</td>
-                    <td>{{ usuario.phone }}</td>
+                    <td>{{ usuario.flat_number }}</td>
+                    <td>{{ usuario.telefono }}</td>
                     <td>
                         <a href="{% url 'editar_usuario' id=usuario.id %}" class="btn">Editar</a>
                         <a href="{% url 'eliminar_usuario' id=usuario.id %}" class="btn btn-danger">Eliminar</a>
